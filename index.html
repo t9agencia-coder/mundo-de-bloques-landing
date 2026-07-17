@@ -27,6 +27,17 @@ document.querySelectorAll('.interactive-carousel').forEach(function(c){
   prev&&prev.addEventListener('click',function(){scroll(-1);});
   next&&next.addEventListener('click',function(){scroll(1);});
 });
+document.querySelectorAll('.faq-item').forEach(function(item){
+  var question=item.querySelector('.faq-question');
+  if(!question)return;
+  question.addEventListener('click',function(){
+    var wasActive=item.classList.contains('active');
+    document.querySelectorAll('.faq-item.active').forEach(function(other){
+      other.classList.remove('active');
+    });
+    if(!wasActive)item.classList.add('active');
+  });
+});
 </script>
 
 </body></html>
